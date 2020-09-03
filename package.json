@@ -1,0 +1,43 @@
+{
+  "name": "array-blur",
+  "version": "1.0.0",
+  "description": "Array & image blurring.",
+  "keywords": [
+    "d3",
+    "d3-module",
+    "blur",
+    "array"
+  ],
+  "homepage": "https://github.com/fil/blur",
+  "license": "BSD-3-Clause",
+  "author": {
+    "name": "Fil",
+    "url": "https://github.com/fil"
+  },
+  "main": "dist/array-blur.js",
+  "unpkg": "dist/array-blur.min.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fil/blur.git"
+  },
+  "files": [
+    "dist/**/*.js",
+    "src/**/*.js"
+  ],
+  "scripts": {
+    "pretest": "rollup -c",
+    "test": "./test/run.sh",
+    "prepublishOnly": "rm -rf dist && yarn test",
+    "postpublish": "zip -j dist/${npm_package_name}.zip -- LICENSE README.md dist/${npm_package_name}.js dist/${npm_package_name}.min.js"
+  },
+  "sideEffects": false,
+  "devDependencies": {
+    "eslint": "7",
+    "jsdom": "16",
+    "rollup": "2",
+    "rollup-plugin-terser": "7",
+    "tape": "4",
+    "tape-await": "0.1"
+  }
+}
