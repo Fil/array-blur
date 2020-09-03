@@ -1,5 +1,20 @@
 # array-blur
 
+_This code was excerpted from [d3-contour](https://github.com/d3/d3-contour), enriched and optimized. It now exists as a [pull-request](https://github.com/d3/d3-array/pull/151) to d3-array. It can be used as a plugin for [D3](https://d3js.org/) or as a stand-alone module._
+
+To use call:
+```js
+<script src="https://unpkg.com/array-blur"></script>
+```
+
+or in node:
+```js
+const B = require("array-blur");
+const blurred_data = B.blur().radius(1)([0, 0, 0, 13.5, 0, 0, 0]); // [0.5, 1.5, 3, 3.5, 3, 1.5, 0.5, width: 7, height: 1]
+```
+
+
+
 <a name="blur" href="#blur">#</a> <b>blur</b>() · [Source](https://github.com/fil/array-blur/blob/master/src/blur.js)
 
 Creates a blur transformer, which can blur (or smooth) an *array* of values by three iterations of a moving average transform.
