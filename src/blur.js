@@ -55,14 +55,19 @@ export default function blur() {
     ry = rx,
     value,
     width;
+  const V = [];
 
   function blur(data) {
-    const n = width || data.length,
-      m = Math.round(data.length / n),
-      V = [
-        value ? Float32Array.from(data, value) : Float32Array.from(data),
-        new Float32Array(data.length)
-      ];
+    const n = width || data.length;
+    const m = Math.round(data.length / n);
+
+    // reuse the V arrays if possible
+    if (!value && V[0] && V[0].length === data.length) {
+      V[0].set(data);
+    } else {
+      V[0] = value ? Float32Array.from(data, value) : Float32Array.from(data);
+      V[1] = new Float32Array(data.length);
+    }
 
     blurTransfer(V, rx, n, false);
     blurTransfer(V, ry, m, true);
