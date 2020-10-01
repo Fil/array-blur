@@ -1,6 +1,6 @@
 {
   "name": "array-blur",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Array & image blurring.",
   "keywords": [
     "d3",
