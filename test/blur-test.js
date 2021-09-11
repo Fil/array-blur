@@ -13,7 +13,6 @@ tape("blur() returns a default blur generator", function(test) {
   test.end();
 });
 
-
 tape("blur() blurs in 1D", function(test) {
   const h = arrays.blur();
   test.deepEqual(
@@ -68,12 +67,18 @@ tape("blur().radius(1.2) does a fraction of blur", function(test) {
   test.end();
 });
 
-
 tape("blur().radius() returns the (average) radius", function(test) {
   const h = arrays.blur();
   test.equal(h.width(2).radiusX(1).radiusY(1).radius(), 1);
   test.equal(h.width(2).radius(2).radius(), 2);
   test.equal(h.width(2).radiusX(1).radiusY(5).radius(), 3);
+  test.end();
+});
+
+tape("blur() accepts an iterable", function(test) {
+  const h = arrays.blur().radius(1);
+  test.deepEqual(h(new Set([27, 0, -27])), Object.assign([8, 0, -8], { width: 3, height: 1 }));
+  test.deepEqual(h.value(d => d.a)(new Set([{a: 27}, {a: 0}, {a: -27}])), Object.assign([8, 0, -8], { width: 3, height: 1 }));
   test.end();
 });
 

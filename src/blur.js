@@ -1,4 +1,5 @@
 import {floor, max, min} from "./math.js";
+import {arrayify} from "./utils.js";
 
 function blurTransfer(V, r, n, vertical) {
   if (!r) return; // radius 0 is a noop
@@ -58,16 +59,16 @@ export default function blur() {
   const V = [];
 
   function blur(data) {
-    const n = width || data.length;
-    const m = Math.round(data.length / n);
-
     // reuse the V arrays if possible
-    if (!value && V[0] && V[0].length === data.length) {
-      V[0].set(data);
-    } else {
+    if (value || !V[0] || V[0].length !== data.length) {
       V[0] = value ? Float32Array.from(data, value) : Float32Array.from(data);
-      V[1] = new Float32Array(data.length);
+      V[1] = new Float32Array(V[0].length);
+    } else {
+      V[0].set(arrayify(data));
     }
+
+    const n = width || V[0].length;
+    const m = Math.round(V[0].length / n);
 
     blurTransfer(V, rx, n, false);
     blurTransfer(V, ry, m, true);
