@@ -25,7 +25,7 @@ If *radius* is specified, sets the radius of the transformation: on each iterati
 
 <a name="blur_value" href="#blur_value">#</a> *blur*.<b>value</b>([*value*])
 
-If *value* is specified, sets the *value* accessor, which will read the values of the *iterator*. If not specified, returns the current number. Defaults to the special *null* accessor, which copies the values directly (faster than an identity function).
+If *value* is specified, sets the *value* accessor, which will read the values of the *iterator*. If not specified, returns the current accessor. Defaults to the special *null* accessor, which copies the values directly (faster than an identity function).
 
 Example:
 ```js
