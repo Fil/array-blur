@@ -1,4 +1,4 @@
-_This module is now obsolete, superseded by [d3.blur](https://github.com/d3/d3-array)_
+_This module is now obsolete, superseded by [d3.blur](https://github.com/d3/d3-array/blob/main/README.md#blur)_
 
 # array-blur
 
