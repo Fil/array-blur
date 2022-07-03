@@ -1,3 +1,5 @@
+_This module is now obsolete, superseded by [d3.blur](https://github.com/d3/d3-array)_
+
 # array-blur
 
 _This code was excerpted from [d3-contour](https://github.com/d3/d3-contour), enriched and optimized. It now exists as a [pull-request](https://github.com/d3/d3-array/pull/151) to d3-array. It can be used as a plugin for [D3](https://d3js.org/) or as a stand-alone module._
